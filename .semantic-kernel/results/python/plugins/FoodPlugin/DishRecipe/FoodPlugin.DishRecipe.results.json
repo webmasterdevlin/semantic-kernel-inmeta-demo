@@ -1,0 +1,42 @@
+{
+    "version": "1.0",
+    "skillName": "FoodPlugin",
+    "functionName": "DishRecipe",
+    "description": "Show the recipe of the dish that is being asked",
+    "filePath": "python/plugins/FoodPlugin/DishRecipe/skprompt.txt",
+    "results": [
+        {
+            "completionConfig": {
+                "label": "gpt-35-turbo",
+                "aiService": "AzureOpenAI",
+                "deploymentOrModelId": "gpt-35-turbo",
+                "endpoint": "https://semantic-kernel-conference-demo.openai.azure.com/",
+                "useCustomEndpoint": false,
+                "endpointType": "chat-completion",
+                "chatSystemMessage": "You are an AI assistant that helps people find information."
+            },
+            "requestSettings": {
+                "temperature": 0,
+                "topP": 0,
+                "presencePenalty": 0,
+                "frequencyPenalty": 0,
+                "maxTokens": 256,
+                "stopSequences": []
+            },
+            "variables": [
+                {
+                    "key": "input",
+                    "value": "adobo"
+                }
+            ],
+            "output": {
+                "prompt": "Give me the recipe of the adobo dish in elaborated way.\n\n[Format]\nHow to make adobo dish\n\nIngredients:\n\nSteps:\n\n\n___________________________________________________________________________________________\nSay you are not familiar with the dish if you don't know the dish.\n",
+                "durationInMilliseconds": 8504.918,
+                "inputTokens": 49,
+                "outputTokens": 234,
+                "result": "I am familiar with the adobo dish. Here is the recipe:\n\nHow to make adobo dish\n\nIngredients:\n- 1 kg chicken or pork, cut into serving pieces\n- 1/2 cup soy sauce\n- 1/2 cup vinegar\n- 1 head garlic, minced\n- 1 tsp whole peppercorns\n- 2 bay leaves\n- 1/2 cup water\n- 2 tbsp cooking oil\n\nSteps:\n1. In a large bowl, combine the soy sauce, vinegar, garlic, and whole peppercorns. Mix well.\n2. Add the chicken or pork to the bowl and marinate for at least 30 minutes.\n3. In a large pot or pan, heat the cooking oil over medium heat.\n4. Add the marinated meat and cook until browned on all sides.\n5. Pour in the marinade and add the bay leaves and water.\n6. Bring to a boil, then reduce the heat to low and let simmer for 30-40 minutes or until the meat is tender and the sauce has thickened.\n7. Serve hot with rice.\n\nEnjoy your adobo dish!",
+                "chatCompletionResult": "I am familiar with the adobo dish. Here is the recipe:\n\nHow to make adobo dish\n\nIngredients:\n- 1 kg chicken or pork, cut into serving pieces\n- 1/2 cup soy sauce\n- 1/2 cup vinegar\n- 1 head garlic, minced\n- 1 tsp whole peppercorns\n- 2 bay leaves\n- 1/2 cup water\n- 2 tbsp cooking oil\n\nSteps:\n1. In a large bowl, combine the soy sauce, vinegar, garlic, and whole peppercorns. Mix well.\n2. Add the chicken or pork to the bowl and marinate for at least 30 minutes.\n3. In a large pot or pan, heat the cooking oil over medium heat.\n4. Add the marinated meat and cook until browned on all sides.\n5. Pour in the marinade and add the bay leaves and water.\n6. Bring to a boil, then reduce the heat to low and let simmer for 30-40 minutes or until the meat is tender and the sauce has thickened.\n7. Serve hot with rice.\n\nEnjoy your adobo dish!"
+            }
+        }
+    ]
+}

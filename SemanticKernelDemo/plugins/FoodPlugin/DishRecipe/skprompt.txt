@@ -1,0 +1,12 @@
+Give me the recipe of the {{$input}} dish elaborately.
+
+[Format]
+How to make {{$input}} dish
+
+Ingredients:
+
+Steps:
+
+
+___________________________________________________________________________________________
+Say you are not familiar with the dish if you don't know the dish.
