@@ -1,53 +1,48 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
-using Microsoft.SemanticKernel.Orchestration;
-using Microsoft.SemanticKernel.SkillDefinition;
+using Microsoft.SemanticKernel;
 
 namespace SemanticKernelDemo.plugins.MathPlugin;
 
 public class Math
 {
     [SKFunction, Description("Add two numbers")]
-    [SKParameter("input", "The first number to add")]
-    [SKParameter("number2", "The second number to add")]
-    public string Add(SKContext context)
+    public string Add([SKName("input"), Description("The first number to add")] string input,
+                      [SKName("number2"), Description("The first number to add")] string number2)
     {
         return (
-            Convert.ToDouble(context.Variables["input"], CultureInfo.InvariantCulture) +
-            Convert.ToDouble(context.Variables["number2"], CultureInfo.InvariantCulture)
+            Convert.ToDouble(input, CultureInfo.InvariantCulture) +
+            Convert.ToDouble(number2, CultureInfo.InvariantCulture)
         ).ToString(CultureInfo.InvariantCulture);
     }
 
     [SKFunction, Description("Subtract two numbers")]
-    [SKParameter("input", "The first number to subtract from")]
-    [SKParameter("number2", "The second number to subtract away")]
-    public string Subtract(SKContext context)
+    public string Subtract([SKName("input"), Description("The first number to add")] string input, 
+                           [SKName("number2"), Description("The first number to add")] string number2)
     {
         return (
-            Convert.ToDouble(context.Variables["input"], CultureInfo.InvariantCulture) -
-            Convert.ToDouble(context.Variables["number2"], CultureInfo.InvariantCulture)
+            Convert.ToDouble(input, CultureInfo.InvariantCulture) -
+            Convert.ToDouble(number2, CultureInfo.InvariantCulture)
         ).ToString(CultureInfo.InvariantCulture);
     }
 
     [SKFunction, Description("Multiply two numbers. When increasing by a percentage, don't forget to add 1 to the percentage.")]
-    [SKParameter("input", "The first number to multiply")]
-    [SKParameter("number2", "The second number to multiply")]
-    public string Multiply(SKContext context)
+    public string Multiply([SKName("input"), Description("The first number to add")] string input, 
+                           [SKName("number2"), Description("The first number to add")] string number2)
     {
         return (
-            Convert.ToDouble(context.Variables["input"], CultureInfo.InvariantCulture) *
-            Convert.ToDouble(context.Variables["number2"], CultureInfo.InvariantCulture)
+            Convert.ToDouble(input, CultureInfo.InvariantCulture) *
+            Convert.ToDouble(number2, CultureInfo.InvariantCulture)
         ).ToString(CultureInfo.InvariantCulture);
     }
 
     [SKFunction, Description("Divide two numbers")]
-    [SKParameter("input", "The first number to divide from")]
-    [SKParameter("number2", "The second number to divide by")]
-    public string Divide(SKContext context)
+    public string Divide([SKName("input"), Description("The first number to add")] string input, 
+                         [SKName("number2"), Description("The first number to add")] string number2)
     {
         return (
-            Convert.ToDouble(context.Variables["input"], CultureInfo.InvariantCulture) /
-            Convert.ToDouble(context.Variables["number2"], CultureInfo.InvariantCulture)
+            Convert.ToDouble(input, CultureInfo.InvariantCulture) /
+            Convert.ToDouble(number2, CultureInfo.InvariantCulture)
         ).ToString(CultureInfo.InvariantCulture);
     }
 }

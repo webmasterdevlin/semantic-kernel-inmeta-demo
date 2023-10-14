@@ -2,6 +2,8 @@
 
 using Microsoft.SemanticKernel;
 
+namespace SemanticKernelDemo.config;
+
 internal static class KernelBuilderExtensions
 {
     /// <summary>

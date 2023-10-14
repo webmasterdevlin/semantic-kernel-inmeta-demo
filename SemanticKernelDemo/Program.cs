@@ -1,14 +1,14 @@
 ﻿using System.Text.Json;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Planning;
-
+using Microsoft.SemanticKernel.Planners;
+using SemanticKernelDemo.config;
 using Math = SemanticKernelDemo.plugins.MathPlugin.Math;
 
 
 var kernel = new KernelBuilder().WithCompletionService().Build();
 
 var pluginsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "plugins");
-var foodPlugin = kernel.ImportSemanticSkillFromDirectory(pluginsDirectory, "FoodPlugin");
+var foodPlugin = kernel.ImportSemanticFunctionsFromDirectory(pluginsDirectory, "FoodPlugin");
 
 var query = "adobo";
 var recipe = await kernel.RunAsync(query, foodPlugin["DishRecipe"]);
@@ -16,7 +16,7 @@ Console.WriteLine("Recipe helper results:");
 Console.WriteLine(recipe);
 
 
-kernel.ImportSkill(new Math(), "MathPlugin");
+kernel.ImportFunctions(new Math(), "MathPlugin");
 
 var planner = new SequentialPlanner(kernel);
 
@@ -31,7 +31,7 @@ var plan = await planner.CreatePlanAsync(ask);
 Console.WriteLine("Plan object:\n");
 Console.WriteLine(JsonSerializer.Serialize(plan, new JsonSerializerOptions { WriteIndented = true }));
 
-var result = (await kernel.RunAsync(plan)).Result;
+var result = await kernel.RunAsync(plan);
 
 Console.WriteLine("Plan results:");
-Console.WriteLine(result.Trim());
+Console.WriteLine(result.GetValue<string>());
