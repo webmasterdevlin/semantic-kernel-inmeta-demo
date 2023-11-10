@@ -22,7 +22,7 @@ internal static class KernelBuilderExtensions
                 }
                 else if (Env.Var("AzureOpenAI:DeploymentType")! == "chat-completion")
                 {
-                    kernelBuilder.WithAzureChatCompletionService(deploymentName: Env.Var("AzureOpenAI:ChatCompletionDeploymentName")!, endpoint: Env.Var("AzureOpenAI:Endpoint")!, apiKey: Env.Var("AzureOpenAI:ApiKey")!);
+                    kernelBuilder.WithAzureOpenAIChatCompletionService(deploymentName: Env.Var("AzureOpenAI:ChatCompletionDeploymentName")!, endpoint: Env.Var("AzureOpenAI:Endpoint")!, apiKey: Env.Var("AzureOpenAI:ApiKey")!);
                 }
                 break;
 
